@@ -8,6 +8,7 @@
 #include <string>
 #include "DLL.h"
 using namespace std;
+const int INIT_CUSTOMERS = 3;
 const int NUM_ROUNDS = 10;
 const int ARR_SIZE = 50;
 
@@ -16,14 +17,14 @@ void print_vector(vector<string> const &);
 void print_queue(queue<string> );
 
 int main() {
-    cout << "\n=========BREAKFAST BOOTH QUEUE SIMULATION==========\n";
     srand(time(0));
     DoublyLinkedList coffeeLine;
     deque<string> muffinsLine;
     vector<string> braceletsLine;
     queue<string> croissantsLine;
-
-    for (int i = 0; i < 3; i++) {
+    
+    // Populate each of the lines with 3 people
+    for (int i = 0; i < INIT_CUSTOMERS; i++) {
         coffeeLine.push_back();
         muffinsLine.push_back(names[rand() % NUM_NAMES]);
         braceletsLine.push_back(names[rand() % NUM_NAMES]);
@@ -31,6 +32,9 @@ int main() {
         cout << endl;
     }
 
+    cout << "\n=========BREAKFAST BOOTH QUEUE SIMULATION==========\n";
+
+    // Print initial states
     cout << "Initial coffee queue:\n";
     coffeeLine.print();
     cout << "Initial blueberry muffin stand queue:\n";
@@ -45,6 +49,7 @@ int main() {
     
     for (int i = 1; i <= NUM_ROUNDS; i++ ) {
         cout << "\n=======Round #" << i << "========\n";
+
         // Always serve a customer
         coffeeLine.pop_front();
 
@@ -89,6 +94,7 @@ int main() {
             cout << "Customer joined the croissant shop line.\n";
         }
 
+        // Print current status of the lines
         cout << "\nCurrent coffee line: \n";
         coffeeLine.print();
         cout << "\nCurrent muffin stand line:\n";
@@ -98,13 +104,7 @@ int main() {
         cout << "\nCurrent croissant shop line:\n";
         print_queue(croissantsLine);
     }
-
-    // Arrays are finicky. Maps and sets automatically sort, so that doesn't fit the 
-    // store queue use case. Graphs and hash tables don't really work either
-    // std:queue has been studied in the Zybook, so I think it counts as a structure 
-    // studied in the course
-    // Milestone 5: add std::queue queue for croissant stand
-    // Once again, only one type of croissant, so everyone's order is the same
+    cout << "\nShops are closed for the day. See you next time!\n";
 
     return 0;
 }
@@ -115,9 +115,10 @@ void print_deque(deque<string> const & dq) {
 void print_vector(vector<string> const & vec) {
     for (const auto & item : vec) cout << item << endl;
 }
+// Pass by value to make a copy
 void print_queue(queue<string> q) {
-    // continously print the first item, then remove it to print the 
-    // entire queue
+    // continously print the first item and remove it. 
+    // This prints the entire queue
     while (!q.empty()) {
         cout << q.front() << endl;
         q.pop();
