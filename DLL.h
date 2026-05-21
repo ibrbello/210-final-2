@@ -67,7 +67,7 @@ class DoublyLinkedList {
                 tail = newNode;
             }
             cout << newNode->name << " with order: " << newNode->drink <<
-            " has joined the line.\n";
+            " has joined the coffee line.\n";
         }
         // Copied from Midterm 2
         void pop_front() {
