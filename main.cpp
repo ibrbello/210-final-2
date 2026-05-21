@@ -13,7 +13,7 @@ const int ARR_SIZE = 50;
 
 void print_deque(deque<string> const &);
 void print_vector(vector<string> const &);
-void print_queue(queue<string> const &);
+void print_queue(queue<string> );
 
 int main() {
     cout << "\n=========BREAKFAST BOOTH QUEUE SIMULATION==========\n";
@@ -63,7 +63,7 @@ int main() {
         if (croissantsLine.empty()) cout << "There's no one to serve in the croissant shop line.\n";
         else { 
             croissantsLine.pop();
-            cout << "Bracelet stand customer served.\n";
+            cout << "Croissant shop customer served.\n";
         }
 
         // 50% chance of a customer joining any of the lines
@@ -115,6 +115,11 @@ void print_deque(deque<string> const & dq) {
 void print_vector(vector<string> const & vec) {
     for (const auto & item : vec) cout << item << endl;
 }
-void print_queue(queue<string> const & q) {
-    for (const auto & item : q) cout << item << endl;
+void print_queue(queue<string> q) {
+    // continously print the first item, then remove it to print the 
+    // entire queue
+    while (!q.empty()) {
+        cout << q.front() << endl;
+        q.pop();
+    }
 }
