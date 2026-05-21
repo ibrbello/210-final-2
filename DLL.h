@@ -69,19 +69,26 @@ class DoublyLinkedList {
             cout << newNode->name << " with order: " << newNode->drink <<
             " has joined the line.\n";
         }
-
+        // Copied from Midterm 2
         void pop_front() {
+
             if (!head) {
                 cout << "There's no one to serve.\n" << endl;
                 return;
             }
-            Node* temp = head;
-            temp->next->prev = nullptr; 
-            head = temp->next;
+    
+            Node * temp = head;
+    
+            if (head->next) {
+                head = head->next;
+                head->prev = nullptr;
+            }
+            else
+                head = tail = nullptr;
             delete temp;
             cout << "Customer served." << endl << endl;
-    
         }
+    
 
         void print() {
             Node* current = head;

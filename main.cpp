@@ -31,7 +31,7 @@ int main() {
         if (prob > 50) {
             line.push_back();
         }
-        cout << "Current line: \n";
+        cout << "\nCurrent line: \n";
         line.print();
     }
 
