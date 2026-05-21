@@ -5,14 +5,8 @@
 #include <vector>
 #include <deque>
 #include <string>
+#include "DLL.h"
 using namespace std;
-
-struct Node {
-    string name;
-    string drink;
-    Node* next;
-};
-
 
 // Steps:
 // 1. Create Node struct
