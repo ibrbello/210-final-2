@@ -7,11 +7,13 @@ using namespace std;
 class DoublyLinkedList {
     private:
         struct Node {
-            int data;
+            string name;
+            string drink;
             Node* prev;
             Node* next;
-            Node(int val, Node* p = nullptr, Node* n = nullptr) {
-                data = val; 
+            Node(string nm, string d, Node* p = nullptr, Node* n = nullptr) {
+                name = nm;
+                drink = d;
                 prev = p;
                 next = n;
             }
@@ -24,7 +26,7 @@ class DoublyLinkedList {
         // constructor
         DoublyLinkedList() { head = nullptr; tail = nullptr; }
     
-        void push_back(int value) {
+        void push_back(string nm, string drink) {
             Node* newNode = new Node(value);
             if (!tail)  // if there's no tail, the list is empty
                 head = tail = newNode;
@@ -35,7 +37,7 @@ class DoublyLinkedList {
             }
         }
     
-        void push_front(int value) {
+        void push_front(string nm, string drink) {
             Node* newNode = new Node(value);
             if (!head)  // if there's no head, the list is empty
                 head = tail = newNode;
@@ -46,7 +48,7 @@ class DoublyLinkedList {
             }
         }
     
-        void insert_after(int value, int position) {
+        void insert_after(string nm, string drink, int position) {
             if (position < 0) { // input check
                 cout << "Position must be >= 0." << endl;
                 return;
@@ -77,7 +79,7 @@ class DoublyLinkedList {
             temp->next = newNode;
         }
     
-        void delete_val(int value) {
+        void delete_val(string nm, string drink) {
             if (!head) {
                 cout << "List is empty." << endl;
                 return;

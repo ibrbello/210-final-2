@@ -15,7 +15,7 @@ using namespace std;
 
 
 int main() {
-
+    DoublyLinkedList line;
 
     return 0;
 }
