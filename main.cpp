@@ -25,7 +25,7 @@ int main() {
     // Milestone 2
     for (int i = 1; i <= NUM_ROUNDS; i++ ) {
         cout << "Round #" << i << ": \n";
-        // Serve a customer
+        // Always serve a customer
         line.pop_front();
         // 50% chance of a customer joining
         int prob = rand() % 100;
@@ -35,6 +35,9 @@ int main() {
         cout << "\nCurrent line: \n";
         line.print();
     }
+
+    // Milestone 3: New booth using deque
+    // Steps: create deque, with just names (this vendor only sells blueberry muffins, so no orders)
 
     return 0;
 }
