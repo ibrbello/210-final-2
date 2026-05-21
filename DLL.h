@@ -73,7 +73,7 @@ class DoublyLinkedList {
         void pop_front() {
 
             if (!head) {
-                cout << "There's no one to serve in the coffee line.\n" << endl;
+                cout << "There's no one to serve in the coffee line.\n";
                 return;
             }
     
@@ -86,7 +86,7 @@ class DoublyLinkedList {
             else
                 head = tail = nullptr;
             delete temp;
-            cout << "Coffee customer served." << endl << endl;
+            cout << "Coffee customer served." << endl;
         }
     
 
