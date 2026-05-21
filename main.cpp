@@ -22,8 +22,9 @@ int main() {
     cout << "COFFEE BOOTH QUEUE SIMULATION\n";
     cout << "Initial coffee queue:\n";
     line.print();
-
-    for (int i = 0; i < NUM_ROUNDS; i++ ) {
+    // Milestone 2
+    for (int i = 1; i <= NUM_ROUNDS; i++ ) {
+        cout << "Round #" << i << ": \n";
         // Serve a customer
         line.pop_front();
         // 50% chance of a customer joining

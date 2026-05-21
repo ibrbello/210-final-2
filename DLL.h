@@ -97,7 +97,7 @@ class DoublyLinkedList {
                 cout << current->name << " " << current->drink << endl;
                 current = current->next;
             }
-            cout << endl << endl;
+            cout << endl;
         }
     
         void print_reverse() {
@@ -107,7 +107,7 @@ class DoublyLinkedList {
                 cout << current->name << " " << current->drink << endl;
                 current = current->prev;
             }
-            cout << endl << endl;
+            cout << endl;
         }
     
         ~DoublyLinkedList() {
