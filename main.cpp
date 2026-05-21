@@ -4,14 +4,18 @@
 #include <list>
 #include <vector>
 #include <deque>
+#include <array>
 #include <string>
 #include "DLL.h"
 using namespace std;
 
 void print_deque(deque<string> const &);
 void print_vector(vector<string> const &);
+void print_arr(array<string, > const &);
+
 
 const int NUM_ROUNDS = 10;
+const int ARR_SIZE = 50;
 
 int main() {
     cout << "\n=========BREAKFAST BOOTH QUEUE SIMULATION==========\n";
@@ -19,11 +23,13 @@ int main() {
     DoublyLinkedList coffeeLine;
     deque<string> muffinsLine;
     vector<string> braceletsLine;
+    array<string, ARR_SIZE> croissantsLine;
 
     for (int i = 0; i < 3; i++) {
         coffeeLine.push_back();
         muffinsLine.push_back(names[rand() % NUM_NAMES]);
         braceletsLine.push_back(names[rand() % NUM_NAMES]);
+        croissantsLine[croissantsLine.size()] = names[rand() % NUM_NAMES];
         cout << endl;
     }
 
@@ -76,9 +82,10 @@ int main() {
         cout << "\nCurrent bracelet stand line:\n";
         print_vector(braceletsLine);
     }
-    // Milestone 4: Add vector queue
-    // Steps: Create vector structure (again just names, all friendship bracelets are the same)
-    // Do same thing that was done for the deque
+
+
+    // Milestone 5: add array queue of croissants
+    // Once again, only one type of croissant, so everyone's order is the same
 
     return 0;
 }
