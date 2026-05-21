@@ -9,6 +9,8 @@
 using namespace std;
 
 void print_deque(deque<string> const &);
+void print_vector(vector<string> const &);
+
 const int NUM_ROUNDS = 10;
 
 int main() {
@@ -16,11 +18,12 @@ int main() {
     srand(time(0));
     DoublyLinkedList coffeeLine;
     deque<string> muffinsLine;
+    vector<string> braceletsLine;
 
-    // Assuming deque should also be initialized to 3 people
     for (int i = 0; i < 3; i++) {
         coffeeLine.push_back();
         muffinsLine.push_back(names[rand() % NUM_NAMES]);
+        braceletsLine.push_back(names[rand() % NUM_NAMES]);
         cout << endl;
     }
 
@@ -28,6 +31,8 @@ int main() {
     coffeeLine.print();
     cout << "Initial blueberry muffin stand queue:\n";
     print_deque(muffinsLine);
+    cout << "Initial friendship bracelet stand queue:\n";
+    print_vector(braceletsLine);
     
     for (int i = 1; i <= NUM_ROUNDS; i++ ) {
         cout << "Round #" << i << ": \n";
@@ -38,6 +43,12 @@ int main() {
             muffinsLine.pop_front();
             cout << "Muffin stand customer served.\n";
         }
+        if (muffinsLine.empty()) cout << "Muffin stand line is empty.\n";
+        else { 
+            muffinsLine.pop_front();
+            cout << "Muffin stand customer served.\n";
+        }
+
 
         // 50% chance of a customer joining
         int prob = rand() % 100;
@@ -56,6 +67,9 @@ int main() {
         cout << "\nCurrent muffin stand line:\n";
         print_deque(muffinsLine);
     }
+    // Milestone 4: Add vector queue
+    // Steps: Create vector structure (again just names, all friendship bracelets are the same)
+    // Do same thing that was done for the deque
 
     return 0;
 }
@@ -63,3 +77,8 @@ int main() {
 void print_deque(deque<string> const & dq) {
     for (const auto & item: dq) cout << item << endl;
 }
+
+void print_vector(vector<string> const & vec) {
+    for (const auto & item : vec) cout << item << endl;
+}
+
