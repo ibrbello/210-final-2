@@ -66,18 +66,20 @@ class DoublyLinkedList {
                 newNode->prev = tail;
                 tail = newNode;
             }
+            cout << newNode->name << " with order: " << newNode->drink <<
+            " has joined the line.\n";
         }
 
         void pop_front() {
             if (!head) {
-                cout << "List is empty." << endl;
+                cout << "There's no one to serve.\n" << endl;
                 return;
             }
             Node* temp = head;
             temp->next->prev = nullptr; 
             head = temp->next;
             delete temp;
-            cout << "Node deleted." << endl << endl;
+            cout << "Customer served." << endl << endl;
     
         }
 
