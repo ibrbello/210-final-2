@@ -8,14 +8,12 @@
 #include <string>
 #include "DLL.h"
 using namespace std;
+const int NUM_ROUNDS = 10;
+const int ARR_SIZE = 50;
 
 void print_deque(deque<string> const &);
 void print_vector(vector<string> const &);
-void print_arr(array<string, > const &);
-
-
-const int NUM_ROUNDS = 10;
-const int ARR_SIZE = 50;
+void print_arr(array<string, ARR_SIZE> const &);
 
 int main() {
     cout << "\n=========BREAKFAST BOOTH QUEUE SIMULATION==========\n";
@@ -41,19 +39,31 @@ int main() {
     cout << "Initial friendship bracelet stand queue:\n";
     print_vector(braceletsLine);
     cout << endl;
+    cout << "Initial croissant shop queue:\n";
+    print_arr(croissantsLine);
+    cout << endl;
     
     for (int i = 1; i <= NUM_ROUNDS; i++ ) {
         cout << "\n=======Round #" << i << "========\n";
         // Always serve a customer
         coffeeLine.pop_front();
+
         if (muffinsLine.empty()) cout << "There's no one to serve in the muffin stand line.\n";
         else { 
             muffinsLine.pop_front();
             cout << "Muffin stand customer served.\n";
         }
+
         if (braceletsLine.empty()) cout << "There's no one to serve in the bracelet stand line.\n";
         else { 
             braceletsLine.erase(braceletsLine.begin());
+            cout << "Bracelet stand customer served.\n";
+        }
+
+        if (croissantsLine.empty()) cout << "There's no one to serve in the croissant shop line.\n";
+        else { 
+            // Not sure how to easily delete the front person and shift every other person over
+            // croissantsLine[0] = ;
             cout << "Bracelet stand customer served.\n";
         }
 
@@ -86,6 +96,10 @@ int main() {
 
     // Milestone 5: add array queue of croissants
     // Once again, only one type of croissant, so everyone's order is the same
+    // Not sure how to make this work. Let's try a binary tree
+    // Create binary tree (straightforward)
+    // Add random names to BST
+
 
     return 0;
 }
@@ -98,3 +112,6 @@ void print_vector(vector<string> const & vec) {
     for (const auto & item : vec) cout << item << endl;
 }
 
+void print_arr(array<string, ARR_SIZE> const & arr) {
+    for (const auto & item : arr) cout << item << endl;
+}
